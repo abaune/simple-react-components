@@ -1,0 +1,23 @@
+.simple-rc-icon-bar {
+  display: inline-flex;
+  font-size: 32px;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  .data-item {
+    padding: 20px;
+    cursor: pointer;
+    background-color: #aaa;
+    text-align: center;
+
+    &:hover {
+      background-color: #ccc;
+    }
+
+    &.active {
+      background-color: #929292;
+    }
+  }
+}

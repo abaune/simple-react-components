@@ -26,10 +26,41 @@ class DemoPage extends Component {
     getIconBarData() {
         return [
             {
-                icon: <i className='fa fa-bars' />,
+                icon: 'fa fa-columns', // column layout
+                onClickCallback: () => { },
+            },
+            {
+                icon: 'fa fa-ellipsis-v', // iconBar
+                onClickCallback: () => { },
+            },
+            {
+                icon: <i className='fa fa-sort' />, // scrollable list
+                onClickCallback: () => { },
+            },
+            {
+                icon: <i className='fa fa-bars' />, // menuIcon
                 onClickCallback: () => {},
-                orientation: 'vertical'
-            }
+            },
+            {
+                icon: 'fa fa-object-ungroup', // off screen canvas
+                onClickCallback: () => {}
+            },
+            {
+                icon: 'fa fa-book', // pagination
+                onClickCallback: () => { },
+            },
+            {
+                icon: 'fa fa-search', // search
+                onClickCallback: () => { },
+            },
+            {
+                icon: 'fa fa-toggle-on', // toggle
+                onClickCallback: () => { }
+            },
+            {
+                icon: 'fa fa-caret-down', // accordion toggle section
+                onClickCallback: () => {}
+            },
         ];
     }
 

@@ -27,17 +27,22 @@ class IconBar extends Component {
         Utils.bindFunctions(this, 'handleOnClick');
     }
 
-    handleOnClick() {
-        console.log(arguments);
-        console.log(this.state, this.props);
+    handleOnClick(dataItem, index, evt) {
+        this.setState({
+            activeIndex: index,
+        }, dataItem.onClickCallback(dataItem, index, evt));
     }
 
     render() {
         return (
-            <div className='simple-rc-icon-bar'>
+            <div className={`simple-rc-icon-bar ${this.props.orientation}`}>
                 {this.props.data.map((dataItem, index) => {
+                    const className = index === this.state.activeIndex ? 'data-item active' : 'data-item';
                     return (
-                        <span key={`data-item-${index}`} onClick={() => this.handleOnClick(dataItem, index)}>
+                        <span
+                            key={`data-item-${index}`}
+                            className={className}
+                            onClick={() => this.handleOnClick(dataItem, index)}>
                             {typeof dataItem.icon === 'object' ? dataItem.icon : <i className={dataItem.icon}/>}
                         </span>
                     );
