@@ -7,17 +7,24 @@
   }
 
   .data-item {
+    display: flex;
     padding: 20px;
     cursor: pointer;
-    background-color: #aaa;
-    text-align: center;
 
     &:hover {
-      background-color: #ccc;
+      opacity: .8;
     }
 
     &.active {
-      background-color: #929292;
+      opacity: 1;
+    }
+
+    .icon {
+      flex-grow: 1;
+    }
+
+    .label {
+      margin-left: 20px;
     }
   }
 }
