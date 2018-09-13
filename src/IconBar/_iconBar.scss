@@ -1,0 +1,30 @@
+.simple-rc-icon-bar {
+  display: inline-flex;
+  font-size: 32px;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  .data-item {
+    display: flex;
+    padding: 20px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+
+    .icon {
+      flex-grow: 1;
+    }
+
+    .label {
+      margin-left: 20px;
+    }
+  }
+}
