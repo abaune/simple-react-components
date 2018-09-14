@@ -14,11 +14,11 @@ interface Props {
     orientation: string;
     onClickCallback(item: object, index: number, evt: object);
     style?: {
-        backgroundColor: string;
-        activeBackgroundColor: string;
-        color: string;
-        fontSize: string;
-        padding: string;
+        backgroundColor?: string;
+        activeBackgroundColor?: string;
+        color?: string;
+        fontSize?: string;
+        padding?: string;
     }
     expand?: boolean
 };

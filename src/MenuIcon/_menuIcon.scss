@@ -1,10 +1,8 @@
 .simple-rc-menu-icon {
   cursor: pointer;
-  width: 40px;
+  min-width: 40px;
 
   .icon-row {
-    width: 35px;
-    height: 5px;
     margin: 5px 0;
     border-radius: 5px;
   }
