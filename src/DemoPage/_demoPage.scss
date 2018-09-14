@@ -14,4 +14,43 @@
       margin: 0 20px 0 10px;
     }
   }
+
+  .body {
+    .content-area {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      .demo-component {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .description {
+          display: block;
+          margin-top: 40px;
+
+          .red {
+            color: red;
+          }
+
+          .example-usage {
+            display: block;
+            margin-top: 15px;
+
+            .indent {
+              display: block;
+              margin-left: 20px;
+            }
+
+            .prop-desc {
+              display: block;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

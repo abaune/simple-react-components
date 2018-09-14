@@ -10,6 +10,7 @@
     display: flex;
     padding: 20px;
     cursor: pointer;
+    z-index: 9999;
 
     &:hover {
       opacity: .8;
