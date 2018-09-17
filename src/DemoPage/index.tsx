@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // Components
 import MenuIcon from '../MenuIcon';
 import IconBar from '../IconBar';
+import Toggle from '../Toggle';
 
 // Utils
 import Utils from '../Utils/utils';
@@ -10,6 +11,7 @@ import Utils from '../Utils/utils';
 interface State {
     componentIndex: number | null;
     expandIconBar: boolean;
+    toggled: boolean;
 }
 
 class DemoPage extends Component<null, State> {
@@ -19,9 +21,10 @@ class DemoPage extends Component<null, State> {
         this.state = {
             componentIndex: null,
             expandIconBar: false,
+            toggled: false,
         };
 
-        Utils.bindFunctions(this, 'menuIconOnClickCallback', 'iconBarOnClickCallback', 'getCurrentComponent');
+        Utils.bindFunctions(this, 'menuIconOnClickCallback', 'iconBarOnClickCallback', 'getCurrentComponent', 'toggleOnClickCallback');
     }
 
     /**
@@ -75,24 +78,80 @@ class DemoPage extends Component<null, State> {
     }
 
     /**
+     * Sets the toggled state.
+     */
+    toggleOnClickCallback(): void {
+        this.setState({
+            toggled: !this.state.toggled
+        });
+    }
+
+    /**
      * The icon bar on click callback
      */
     iconBarOnClickCallback(datItem: object, index: number, evt: Event): void {
         this.setState({componentIndex: index});
     }
 
-    getCurrentComponent() {
+    /**
+     * Returns the currently selected component to display in the center of the page.
+     * @return {JSX.Element} The currently selected component
+     */
+    getCurrentComponent(): JSX.Element {
         if (this.state.componentIndex === null) {
             return <span className='center'>To begin select a component from the icon bar on the left.</span>
         }
         switch(this.state.componentIndex) {
             case 3:
                 return this.getMenuIconComponent();
+            case 6:
+                return this.getToggleComponent();
             default:
                 return null;
         }
     }
 
+    /**
+     * Returns the toggle component for the display page.
+     * @return {JSX.Element} The Toggle component markup
+     */
+    getToggleComponent(): JSX.Element {
+        return <div className='demo-component'>
+            <Toggle
+                toggled={this.state.toggled}
+                onClickCallback={this.toggleOnClickCallback} />
+            <span className='description'>
+                This is a basic toggle. It has a <span className='red'>onClickCallback</span> prop that is triggered on a click.
+                It is the parent's job to decide what happens on that click. In this case, the onClick will change the toggled state.
+                The <span className='red'>toggled</span> prop determines the position of the switch.
+                To change this components style, use the <span className='red'>style</span> prop outlined below:
+                <span className='example-usage'>
+                    {'<MenuIcon'} <br />
+                    <span className='indent'>
+                        {`style={{
+                            backgroundColor: '#aeaeae',
+                            toggleColor: '#1e1e1e',
+                            height: '35px',
+                            width: '60px',
+                            toggleHeight: '30px',
+                            toggleWidth: '30px',
+                            onBackgroundColor: '#808080'
+                            }}`}<br />
+                        {`onClickCallback={function(required) => required}`}<br />
+                        {`toggled />`}
+                    </span>
+                    <span className='prop-desc'>
+                        The style prop and its contents are optional. The onClickCallback prop is required.
+                    </span>
+                </span>
+            </span>
+        </div>;
+    }
+
+    /**
+     * Returns the menu icon component for the display page.
+     * @return {JSX.Element} The Menu component markup
+     */
     getMenuIconComponent(): JSX.Element {
         return (
             <div className='demo-component'>
