@@ -1,0 +1,19 @@
+.simple-rc-toggle {
+  position: relative;
+  border-radius: 15px;
+  cursor: pointer;
+
+  .switch {
+    position: absolute;
+    border-radius: 15px;
+    top: 3px;
+
+    &.on {
+      right: 2px;
+    }
+
+    &.off {
+      left: 2px;
+    }
+  }
+}
